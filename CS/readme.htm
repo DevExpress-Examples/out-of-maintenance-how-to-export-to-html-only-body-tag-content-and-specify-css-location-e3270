@@ -1,0 +1,30 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Export to HTML - How to export only <BODY> tag content and specify the location of CSS styles - Developer Express Example</title>
+<style>
+html, body, form 
+{
+	font-family: Tahoma, Arial, Verdana;
+    font-size: small;
+    color: #303440;
+}
+h1 {
+	font-size: 125%;
+	font-weight: normal;
+	color: Black;
+	letter-spacing: 101%;
+}
+</style>
+</head>
+<body>
+<h1>Developer Express Example<br />Export to HTML - How to export only <BODY> tag content and specify the location of CSS styles</h1>
+<p>
+This example illustrates how you can use the HtmlExporter class to export the document in HTML format. The Export method enables you to emit only content encompassed by the specified root tag. The HtmlDocumentExporterOptions object passed as the method's parameter specifies the location of CSS styles - they can be exported to external file, located within the style tag or embedded as inline styles in the corresponding HTML tags.
+The code uses a custom UriProvider to accomplish this task. It is instantiated and registered via the RegisterProvider method of RichEditControl's IUriProviderService service.
+
+</p>
+<p>You can find sample updates and versions for different programming languages here:<br /><a href="http://www.devexpress.com/example=E1726">http://www.devexpress.com/example=E1726</a>.</p>
+</body>
+</html>
