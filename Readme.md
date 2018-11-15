@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [MyUriProvider.cs](./CS/MyUriProvider.cs) (VB: [MyUriProvider.vb](./VB/MyUriProvider.vb))
+<!-- default file list end -->
 # How to export to HTML only <BODY> tag content and specify CSS location
 
 
