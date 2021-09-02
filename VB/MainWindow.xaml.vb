@@ -1,5 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.IO
 Imports System.Windows
 
@@ -16,6 +15,7 @@ Namespace ExportOnlyBodyContent
 	''' </summary>
 	Partial Public Class MainWindow
 		Inherits Window
+
 		Private cssExportType As CssPropertiesExportType
 		Private htmlExportType As ExportRootTag
 
@@ -55,7 +55,7 @@ Namespace ExportOnlyBodyContent
 		Private Sub richEditControl1_DocumentLoaded(ByVal sender As Object, ByVal e As EventArgs)
 			Try
 				Dim fileName As String = richEditControl1.Options.DocumentSaveOptions.CurrentFileName
-				If (Not String.IsNullOrEmpty(fileName)) Then
+				If Not String.IsNullOrEmpty(fileName) Then
 					Using reader As New StreamReader(fileName)
 						Me.memoEdit1.Text = reader.ReadToEnd()
 					End Using
@@ -78,7 +78,7 @@ Namespace ExportOnlyBodyContent
 			saveFileDialog.OverwritePrompt = True
 			saveFileDialog.DereferenceLinks = True
 			saveFileDialog.ValidateNames = True
-			If saveFileDialog.ShowDialog(Me) = True Then
+			If saveFileDialog.ShowDialog(Me).Equals(True) Then
 				Return saveFileDialog.FileName
 			End If
 			Return String.Empty
@@ -105,7 +105,7 @@ Namespace ExportOnlyBodyContent
 			If String.IsNullOrEmpty(fileName) Then
 				Return
 			End If
-			Dim svc As IUriProviderService = CType(richEditControl1.GetService(GetType(IUriProviderService)), IUriProviderService)
+			Dim svc As IUriProviderService = DirectCast(richEditControl1.GetService(GetType(IUriProviderService)), IUriProviderService)
 			svc.RegisterProvider(New MyUriProvider(Path.GetDirectoryName(fileName)))
 			Dim stringHtml As String = String.Empty
 			ExportHtml(stringHtml, Nothing, fileName)
@@ -113,7 +113,7 @@ Namespace ExportOnlyBodyContent
 			SaveFile(fileName, stringHtml)
 		End Sub
 		#Region "#exporting"
-		Private Sub ExportHtml(<System.Runtime.InteropServices.Out()> ByRef stringHtml As String, ByVal exporter As HtmlExporter, ByVal fileName As String)
+		Private Sub ExportHtml(ByRef stringHtml As String, ByVal exporter As HtmlExporter, ByVal fileName As String)
 			stringHtml = String.Empty
 			Dim options As New HtmlDocumentExporterOptions()
 			options.ExportRootTag = htmlExportType
